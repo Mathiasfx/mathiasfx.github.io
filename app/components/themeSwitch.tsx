@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
-
 import { useTheme } from "next-themes";
 import Image from "next/image";
 

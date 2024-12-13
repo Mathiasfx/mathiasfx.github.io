@@ -20,7 +20,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Mathias Pereira | Frontend Developer",
-  description: "My portfolio ",
+  description: "My developer portfolio",
 };
 
 export default function RootLayout({
