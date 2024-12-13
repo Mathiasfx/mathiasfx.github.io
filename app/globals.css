@@ -1,4 +1,4 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,8 +6,8 @@
 
 /* Variables de fuente */
 :root {
-  --font-montserrat: 'Montserrat', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 }
 
 /* Comportamiento de desplazamiento */
@@ -24,11 +24,13 @@ html.light body {
     rgba(20, 20, 30, 0.9)
   );
   margin: 0;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--font-roboto), sans-serif;
+  background-repeat: no-repeat;
 }
 
 /* Modo oscuro (dark) */
@@ -40,15 +42,22 @@ html.dark body {
     rgba(0, 0, 10, 0.95)
   );
   margin: 0;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--font-roboto), sans-serif;
+  background-repeat: no-repeat;
 }
 
 /* Estilo de encabezados */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-montserrat), sans-serif;
 }
 
@@ -59,11 +68,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.darkmode-toggle{
+.darkmode-toggle {
   position: absolute;
   top: 16px;
   right: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-
 }
+
+/* Sombra sutil con un toque más suave */
+.shadow-cyan-500 {
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.3), 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+
