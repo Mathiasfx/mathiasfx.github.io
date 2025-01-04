@@ -6,28 +6,49 @@ import { Work } from "./interfaces/work.interface";
 export default function Home() {
   const works: Work[] = [
     {
-      name: "Simple Store WebApp",
+      name: "Web Fefe Filmaker",
       description:
-        "Is a landing page project designed for small stores in a shopping mall. The application showcases available products along with their current stock and provides a direct WhatsApp contact option for inquiries or order",
-      url: "https://mathiaspereira.dev",
-      image: "/images/appreactnative.png",
-      tec: ["react", "nextjs", "angular", "node"],
+        "I created a modern website for a filmmaker, showcasing their portfolio, multimedia content, and services to connect with their audience.",
+      url: "https://www.fefespinosa.com.ar",
+      github: "",
+      image: "/images/filmaker.png",
+      tec: ["angular", "node"],
     },
     {
-      name: "Mathias Pereira",
+      name: "Web Fiestas Interactivas",
       description:
-        "Mathias Pereira es un desarrollador Frontend con experiennado por resolver problemas y aprender nuevas tecnologías.",
-      url: "https://mathiaspereira.dev",
-      image: "/images/appreactnative.png",
-      tec: ["react", "nextjs", "angular", "node"],
+        "I built a vibrant website for Fiestas Interactivas to showcase advergames, past projects, and connect with marketing agencies.",
+      url: "https://fiestasinteractivas.com.ar/",
+      github: "",
+      image: "/images/fiestas.png",
+      tec: ["angular", "firebase", "tailwindcss"],
     },
     {
-      name: "Simple Store App",
+      name: "Store WebApp",
       description:
-        "Simple Store App es un proyecto de ejemplo para el uso de Redux y React",
-      url: "https://mathiaspereira.dev",
-      image: "/images/appreactnative.png",
-      tec: ["react", "nextjs", "angular", "tailwindcss"],
+        "A landing page project for small stores, displaying available products with stock information and offering direct WhatsApp contact.",
+      url: "https://perfumes-formosa.vercel.app/",
+      github: "https://github.com/Mathiasfx/simple-store-app",
+      image: "/images/simplewebappstore.png",
+      tec: ["react", "nextjs", "tailwindcss"],
+    },
+    {
+      name: "Finance WebApp",
+      description:
+        "I'm developing a web app to manage personal finances: track salary, expenses by category, fixed costs, and investments. ",
+      url: "https://vercel.com/mathiasfxs-projects/personal-financial-app",
+      github: "https://github.com/Mathiasfx/personal-financial-app",
+      image: "/images/finance.png",
+      tec: ["react", "nextjs", "firebase", "tailwindcss"],
+    },
+    {
+      name: "Super Party App",
+      description:
+        "I designed the complete UX/UI for Super Party, a React Native application. The app development is currently in progress.",
+      url: "https://www.behance.net/gallery/101038903/Super-Party-APP-UXUI",
+      github: "",
+      image: "/images/appsuperparty.png",
+      tec: ["reactnative", "firebase"],
     },
   ];
   return (

@@ -23,13 +23,15 @@ export default function MyPresentation() {
     <div className="max-w-screen-lg h-full flex flex-col items-center  md:flex-row md:space-y-0 md:space-x-8 pt-16 mt-5 md:mt-0">
       <div className="text-center md:text-left space-y-4 ">
         <h3 className="text-2xl p-2 md:p-0 md:text-3xl">
-          Hola, Soy <span className="font-semibold">Mathias Pereira</span>
+          Hello, I am <span className="font-semibold">Mathias Pereira</span>
         </h3>
 
         <h3 className="font-bold text-4xl md:text-5xl ">Frontend Developer</h3>
         <p className="text-base p-2 md:p-0 md:text-lg  ">
-          Especializado en React, React Native, Angular y Node.js. Apasionado
-          por resolver problemas y aprender nuevas tecnologías.
+          Specialized in React, React Native, Angular, and Node.js, with a
+          strong background in frontend and full-stack development. Passionate
+          about solving complex problems and continuously learning new
+          technologies to stay ahead in the ever-evolving tech landscape
         </p>
         <div className="flex justify-center items-center py-2">
           <a href="https://www.linkedin.com/in/mathias-pereira/">
@@ -54,7 +56,7 @@ export default function MyPresentation() {
              dark:bg-transparent  dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
           >
             <MdOutlineContentCopy size={16} className="mr-1" />
-            {copySuccess ? "Copiado !" : "Copiar Email"}
+            {copySuccess ? "Copied!" : "Copy Email"}
           </button>
           <button
             type="button"
@@ -65,11 +67,6 @@ export default function MyPresentation() {
             CV
           </button>
         </div>
-        {copySuccess && (
-          <div className="mt-2 position-absolute top-10 left-0 w-full text-center text-black bg-transparent dark:text-white rounded-md p-2">
-            {copySuccess}
-          </div>
-        )}
       </div>
 
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">

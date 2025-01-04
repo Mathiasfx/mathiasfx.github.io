@@ -1,18 +1,13 @@
+import { Work } from "@/app/interfaces/work.interface";
 import { createSlice } from "@reduxjs/toolkit";
-
-export interface Project {
-  id: number;
-  name: string;
-  description: string;
-}
 
 export const Slice = createSlice({
   name: "projects",
   initialState: {
-    projects: [] as Project[],
+    projects: [] as Work[],
   },
   reducers: {
-    addProject: (state, action: { payload: Project }) => {
+    addProject: (state, action: { payload: Work }) => {
       // Modificar el estado directamente
       state.projects.push(action.payload);
     },
