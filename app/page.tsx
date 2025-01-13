@@ -48,7 +48,7 @@ export default function Home() {
       url: "https://www.behance.net/gallery/101038903/Super-Party-APP-UXUI",
       github: "",
       image: "/images/appsuperparty.png",
-      tec: ["reactnative", "firebase"],
+      tec: ["reactnative", "firebase", "tailwindcss"],
     },
   ];
   return (
