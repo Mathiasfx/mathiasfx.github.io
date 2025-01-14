@@ -36,7 +36,7 @@ export default function Home() {
       name: "Finance WebApp",
       description:
         "I'm developing a web app to manage personal finances: track salary, expenses by category, fixed costs, and investments. ",
-      url: "https://vercel.com/mathiasfxs-projects/personal-financial-app",
+      url: "https://personal-financial-app.vercel.app/",
       github: "https://github.com/Mathiasfx/personal-financial-app",
       image: "/images/finance.png",
       tec: ["react", "nextjs", "firebase", "tailwindcss"],
