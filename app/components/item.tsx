@@ -1,4 +1,4 @@
-import { ItemProps } from "../interfaces/itemProps";
+import { ItemProps } from "../interfaces/item.interface";
 import Image from "next/image";
 import { getIcon } from "../utils/utils";
 import { FaGithub, FaGlobeAmericas } from "react-icons/fa";

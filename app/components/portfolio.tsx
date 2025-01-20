@@ -1,4 +1,4 @@
-import { PortfolioProps } from "../interfaces/portfolioProps";
+import { PortfolioProps } from "../interfaces/portfolio.interface";
 import { Work } from "../interfaces/work.interface";
 import Item from "./item";
 
