@@ -76,6 +76,15 @@ h6 {
   transition: all 0.3s ease;
 }
 
+.language-switcher{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
 /* Sombra sutil con un toque más suave */
 .shadow-cyan-500 {
   box-shadow: 0 0 6px rgba(0, 255, 255, 0.3), 0 0 15px rgba(0, 255, 255, 0.2);
