@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client"; // Asegúrate de que este marcador de "use client" esté al inicio
+
 import React, { createContext, useEffect, useState } from "react";
 
-//Archivos de Traduccion.
+// Archivos de Traducción
 import es from "../locale/es";
 import en from "../locale/en";
+// Interfaces
 import { I18nContextValue } from "../interfaces/i18nContextValue.interface";
 import { Translation } from "../interfaces/translation.interface";
 
@@ -14,27 +18,31 @@ const defaultLanguage = "en";
 export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<string>(
-    localStorage.getItem("language") || navigator.language.split("-")[0]
-  );
+  const [language, setLanguage] = useState<string>(defaultLanguage);
 
+  // Usamos useEffect para acceder a localStorage solo cuando el componente se renderiza en el cliente
   useEffect(() => {
-    const browserLang = navigator.language.split("-")[0];
-    const storedLang = localStorage.getItem("language");
+    if (typeof window !== "undefined") {
+      // Accedemos a localStorage solo en el cliente
+      const storedLang = localStorage.getItem("language");
+      const browserLang = navigator.language.split("-")[0];
 
-    if (storedLang && supportedLanguages.includes(storedLang)) {
-      setLanguage(browserLang);
-    } else if (supportedLanguages.includes(browserLang)) {
-      setLanguage(browserLang);
-    } else {
-      setLanguage(defaultLanguage);
+      if (storedLang && supportedLanguages.includes(storedLang)) {
+        setLanguage(storedLang);
+      } else if (supportedLanguages.includes(browserLang)) {
+        setLanguage(browserLang);
+      } else {
+        setLanguage(defaultLanguage);
+      }
     }
-  }, []);
+  }, []); // Esto asegura que solo se ejecute en el cliente después de la primera renderización
 
   const changeLanguage = (lang: string) => {
     if (supportedLanguages.includes(lang)) {
       setLanguage(lang);
-      localStorage.setItem("language", lang);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("language", lang);
+      }
     }
   };
 
@@ -42,9 +50,21 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
     en,
     es,
   };
+
   const t = {
-    translate: (key: string | number) => {
-      return translations[language][key] || key;
+    translate: (key: string): string => {
+      const keys = key.split(".");
+      let value: any = translations[language];
+
+      for (let i = 0; i < keys.length; i++) {
+        if (value && value.hasOwnProperty(keys[i])) {
+          value = value[keys[i]];
+        } else {
+          return ""; // Retorna vacío si no se encuentra la clave
+        }
+      }
+
+      return value; // Devuelve el valor final encontrado
     },
   };
 

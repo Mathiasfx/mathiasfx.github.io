@@ -1,3 +1,3 @@
 export interface Translation {
-  [key: string]: string | object;
+  [key: string]: string | Translation;
 }

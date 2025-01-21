@@ -3,6 +3,7 @@ import { Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/store/provider";
 import { Providers } from "./providers/themeProvider";
+import { I18nProvider } from "./providers/i18nProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -35,7 +36,9 @@ export default function RootLayout({
           className={`${montserrat.variable} ${roboto.variable} antialiased`}
           suppressHydrationWarning={true}
         >
-          <Providers>{children}</Providers>
+          <Providers>
+            <I18nProvider> {children}</I18nProvider>
+          </Providers>
         </body>
       </StoreProvider>
     </html>
