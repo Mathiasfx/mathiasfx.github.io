@@ -66,7 +66,7 @@ export default function Home() {
         en: "I'm developing a web app to manage personal finances: track salary, expenses by category, fixed costs, and investments.",
         es: "Estoy desarrollando una aplicación web para gestionar finanzas personales: manejar salarios, gastos por categoría, costos fijos e inversiones.",
       },
-      url: "https://vercel.com/mathiasfxs-projects/personal-financial-app",
+      url: "https://personal-financial-app.vercel.app/",
       github: "https://github.com/Mathiasfx/personal-financial-app",
       image: "/images/finance.png",
       tec: ["react", "nextjs", "firebase", "tailwindcss"],
