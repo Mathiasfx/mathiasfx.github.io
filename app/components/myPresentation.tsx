@@ -52,27 +52,32 @@ export default function MyPresentation({
           </p>
         </div>
 
-        <div className="w-full flex justify-center items-center md:justify-center space-x-4 md:space-x-0 md:space-y-4">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
           <button
             type="button"
             onClick={() => copyToClipboard("mathiaspereiradev@gmail.com")}
-            className="flex items-center px-4 py-2 mr-2 rounded focus:outline-none focus:ring-offset-0 
-             border border-green-500 bg-slate-700  text-white hover:bg-gray-800
-             dark:bg-transparent  dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
+            className="flex items-center px-4 py-2 rounded focus:outline-none focus:ring-offset-0 
+     border border-green-500 bg-slate-700 text-white hover:bg-gray-800
+     dark:bg-transparent dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
           >
             <MdOutlineContentCopy size={16} className="mr-1" />
             {copySuccess
               ? context.t.translate("copySuccess")
               : context.t.translate("copyAction")}
           </button>
-          <button
-            type="button"
-            className="flex m-0 items-center px-4 py-2 rounded focus:outline-none focus:ring-offset-0 
-             border border-green-500 bg-slate-700  text-white hover:bg-gray-800
-             dark:bg-transparent  dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
+          <a
+            href="https://firebasestorage.googleapis.com/v0/b/finanzasweb-efd1f.firebasestorage.app/o/CV_Mathias_Pereira.pdf?alt=media&token=4c8e8b73-16e8-4596-b6fe-3344940b013d"
+            download="CV_Mathias_Pereira.pdf"
           >
-            CV
-          </button>
+            <button
+              type="button"
+              className="flex items-center px-4 py-2 rounded focus:outline-none focus:ring-offset-0 
+       border border-green-500 bg-slate-700 text-white hover:bg-gray-800
+       dark:bg-transparent dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
+            >
+              CV
+            </button>
+          </a>
         </div>
       </div>
 
