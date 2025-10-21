@@ -17,6 +17,34 @@ export default function Home() {
   const works: Work[] = [
     {
       name: {
+        en: "Web Gen3i",
+        es: "Web Gen3i",
+      },
+      description: {
+        en: "I developed this website for gen3i with a responsive design highlighting the good things about the organization.",
+        es: "Desarrolle este sitio web para gen3i con diseño responsive resaltando lo bueno de la organizacion",
+      },
+      url: "https://www.gen3i.com.ar",
+      github: "https://github.com/Mathiasfx/3geni-website",
+      image: "images/gen3i.png",
+      tec: ["angular"],
+    },
+    {
+      name: {
+        en: "App Chatbot IA La clase digital",
+        es: "App Chatbot IA La clase digital",
+      },
+      description: {
+        en: "I developed an AI chatbot application for La Clase Digital using React Native, to assist students and tutors with school help using AI.",
+        es: "Desarrolle una aplicación de chatbot IA para La Clase Digital usando React Native, para la ayuda escolar de los estudiantes y tutores usando IA .",
+      },
+      url: "",
+      github: "",
+      image: "/images/laclasebot.png",
+      tec: ["reactnative"],
+    },
+    {
+      name: {
         en: "Web Fefe Filmaker",
         es: "Web Fefe Filmaker",
       },
@@ -66,7 +94,7 @@ export default function Home() {
         en: "I'm developing a web app to manage personal finances: track salary, expenses by category, fixed costs, and investments.",
         es: "Estoy desarrollando una aplicación web para gestionar finanzas personales: manejar salarios, gastos por categoría, costos fijos e inversiones.",
       },
-      url: "https://vercel.com/mathiasfxs-projects/personal-financial-app",
+      url: "https://personal-financial-app.vercel.app/dashboard",
       github: "https://github.com/Mathiasfx/personal-financial-app",
       image: "/images/finance.png",
       tec: ["react", "nextjs", "firebase", "tailwindcss"],

@@ -1,4 +1,4 @@
-// File: C:\Users\Usuario\Documents\GitHub\mathiasfx.github.io\app\page.tsx
+// File: C:\Users\Usuario\Nextcloud\Repositorios GIT\ACTIVO\mathiasfx.github.io\app\page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
