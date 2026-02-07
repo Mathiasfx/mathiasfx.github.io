@@ -66,7 +66,7 @@ export default function MyPresentation({
               : context.t.translate("copyAction")}
           </button>
           <a
-            href="https://firebasestorage.googleapis.com/v0/b/finanzasweb-efd1f.firebasestorage.app/o/CV_Mathias_Pereira.pdf?alt=media&token=4c8e8b73-16e8-4596-b6fe-3344940b013d"
+            href="/images/CV_Mathias_Pereira.pdf"
             download="CV_Mathias_Pereira.pdf"
           >
             <button
