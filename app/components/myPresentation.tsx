@@ -82,7 +82,7 @@ export default function MyPresentation({
       </div>
 
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
-        <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-teal-500 shadow-lg">
+        <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-teal-500 shadow-lg hover:shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 ease-in-out cursor-pointer">
           <Image
             src="/images/perfil.jpg"
             alt="Mathias Alejandro Pereira"
@@ -90,6 +90,7 @@ export default function MyPresentation({
             height={400}
             objectFit="cover"
             priority={true}
+            className="w-full h-full hover:scale-110 transition-transform duration-300"
           />
         </div>
       </div>
