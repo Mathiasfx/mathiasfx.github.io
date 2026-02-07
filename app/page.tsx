@@ -17,47 +17,19 @@ export default function Home() {
   const works: Work[] = [
     {
       name: {
-        en: "Web Gen3i",
-        es: "Web Gen3i",
+        en: "Super Party App",
+        es: "Super Party App",
       },
       description: {
-        en: "I developed this website for gen3i with a responsive design highlighting the good things about the organization.",
-        es: "Desarrolle este sitio web para gen3i con diseño responsive resaltando lo bueno de la organizacion",
+        en: "I designed the complete UX/UI for Super Party, a React Native application. The app development is currently in progress.",
+        es: "Diseñé toda la UX/UI para Super Party, para una aplicación de React Native. El desarrollo de la app está en progreso.",
       },
-      url: "https://www.gen3i.com.ar",
-      github: "https://github.com/Mathiasfx/3geni-website",
-      image: "images/gen3i.png",
-      tec: ["angular"],
-    },
-    {
-      name: {
-        en: "App Chatbot IA La clase digital",
-        es: "App Chatbot IA La clase digital",
-      },
-      description: {
-        en: "I developed an AI chatbot application for La Clase Digital using React Native, to assist students and tutors with school help using AI.",
-        es: "Desarrolle una aplicación de chatbot IA para La Clase Digital usando React Native, para la ayuda escolar de los estudiantes y tutores usando IA .",
-      },
-      url: "",
+      url: "https://www.behance.net/gallery/101038903/Super-Party-APP-UXUI",
       github: "",
-      image: "/images/laclasebot.png",
-      tec: ["reactnative"],
+      image: "/images/appsuperparty.png",
+      tec: ["reactnative", "firebase", "tailwindcss"],
     },
-    {
-      name: {
-        en: "Web Fefe Filmaker",
-        es: "Web Fefe Filmaker",
-      },
-      description: {
-        en: "I created a modern website for a filmmaker, showcasing their portfolio, multimedia content, and services to connect with their audience.",
-        es: "Desarrolle un sitio web moderno para un filmaker, mostrando su portafolio, contenido multimedia y servicios para conectar con su audiencia.",
-      },
-      url: "https://www.fefespinosa.com.ar",
-      github: "",
-      image: "/images/filmaker.png",
-      tec: ["angular", "node"],
-    },
-    {
+       {
       name: {
         en: "Web Fiestas Interactivas",
         es: "Web Fiestas Interactivas",
@@ -73,18 +45,35 @@ export default function Home() {
     },
     {
       name: {
-        en: "Store WebApp",
-        es: "Tienda WebApp",
+        en: "Web Gen3i",
+        es: "Web Gen3i",
       },
       description: {
-        en: "A landing page project for small stores, displaying available products with stock information and offering direct WhatsApp contact.",
-        es: "Un proyecto de página para pequeñas tiendas, mostrando productos disponibles con información de stock y ofreciendo contacto directo por WhatsApp.",
+        en: "I developed this website for gen3i with a responsive design highlighting the good things about the organization.",
+        es: "Desarrolle este sitio web para gen3i con diseño responsive resaltando lo bueno de la organizacion",
       },
-      url: "https://perfumes-formosa.vercel.app/",
-      github: "https://github.com/Mathiasfx/simple-store-app",
-      image: "/images/simplewebappstore.png",
-      tec: ["react", "nextjs", "tailwindcss"],
+      url: "https://www.gen3i.com.ar",
+      github: "https://github.com/Mathiasfx/3geni-website",
+      image: "images/gen3i.png",
+      tec: ["angular"],
     },
+
+    {
+      name: {
+        en: "Web Fefe Filmaker",
+        es: "Web Fefe Filmaker",
+      },
+      description: {
+        en: "I created a modern website for a filmmaker, showcasing their portfolio, multimedia content, and services to connect with their audience.",
+        es: "Desarrolle un sitio web moderno para un filmaker, mostrando su portafolio, contenido multimedia y servicios para conectar con su audiencia.",
+      },
+      url: "https://www.fefespinosa.com.ar",
+      github: "",
+      image: "/images/filmaker.png",
+      tec: ["angular", "node"],
+    },
+ 
+
     {
       name: {
         en: "Finance WebApp",
@@ -97,21 +86,21 @@ export default function Home() {
       url: "https://personal-financial-app.vercel.app/",
       github: "https://github.com/Mathiasfx/personal-financial-app",
       image: "/images/finance.png",
-      tec: ["react", "nextjs", "firebase", "tailwindcss"],
+      tec: ["react", "nextjs", "firebase"],
     },
-    {
+        {
       name: {
-        en: "Super Party App",
-        es: "Super Party App",
+        en: "App Chatbot IA La clase digital",
+        es: "App Chatbot IA La clase digital",
       },
       description: {
-        en: "I designed the complete UX/UI for Super Party, a React Native application. The app development is currently in progress.",
-        es: "Diseñé toda la UX/UI para Super Party, para una aplicación de React Native. El desarrollo de la app está en progreso.",
+        en: "I developed an AI chatbot application for La Clase Digital using React Native, to assist students and tutors with school help using AI.",
+        es: "Desarrolle una aplicación de chatbot IA para La Clase Digital usando React Native, para la ayuda escolar de los estudiantes y tutores usando IA .",
       },
-      url: "https://www.behance.net/gallery/101038903/Super-Party-APP-UXUI",
+      url: "",
       github: "",
-      image: "/images/appsuperparty.png",
-      tec: ["reactnative", "firebase", "tailwindcss"],
+      image: "/images/laclasebot.png",
+      tec: ["reactnative"],
     },
   ];
 
