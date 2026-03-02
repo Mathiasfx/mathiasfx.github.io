@@ -15,7 +15,7 @@ const LanguageSelector = () => {
   const toggleDropdown = () => setIsOpen(!isOpen);
   const handleLanguageChange = (lang: string) => {
     context.changeLanguage(lang);
-    setIsOpen(false); // Cerrar el dropdown después de seleccionar
+    setIsOpen(false); 
   };
 
   return (

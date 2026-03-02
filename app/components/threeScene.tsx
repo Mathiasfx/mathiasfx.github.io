@@ -9,25 +9,25 @@ export default function ThreeScene() {
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // Escena
+
     const scene = new THREE.Scene();
 
-    // Cámara
+   
     const camera = new THREE.PerspectiveCamera(
-      75, // Ángulo de visión
-      window.innerWidth / window.innerHeight, // Relación de aspecto
-      0.1, // Distancia mínima
-      1000 // Distancia máxima
+      75, 
+      window.innerWidth / window.innerHeight, 
+      0.1, 
+      1000 
     );
     camera.position.z = 5;
 
-    // Renderizador
+    
     const renderer = new THREE.WebGLRenderer();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Cubo
+    
     const geometry = new THREE.BoxGeometry();
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     const cube = new THREE.Mesh(geometry, material);
@@ -35,21 +35,21 @@ export default function ThreeScene() {
 
     scene.add(cube);
 
-    // Luz ambiental
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Color blanco, intensidad 0.5
+  
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
     scene.add(ambientLight);
 
-    // Luz direccional
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Color blanco, intensidad 1
-    directionalLight.position.set(5, 5, 7); // Posición de la luz
-    directionalLight.castShadow = true; // Activar sombras
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1); 
+    directionalLight.position.set(5, 5, 7); 
+    directionalLight.castShadow = true; 
     scene.add(directionalLight);
 
-    // Helper para visualizar la posición de la luz direccional
+  
     const lightHelper = new THREE.DirectionalLightHelper(directionalLight);
     scene.add(lightHelper);
 
-    // Animación
+   
     const animate = () => {
       requestAnimationFrame(animate);
       cube.rotation.x += 0.01;
@@ -59,7 +59,7 @@ export default function ThreeScene() {
     animate();
 
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Opcional, sombras suaves
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
 
     // Cleanup
     return () => {
