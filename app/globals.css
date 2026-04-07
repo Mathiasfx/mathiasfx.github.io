@@ -24,11 +24,11 @@ html.light body {
     rgba(20, 20, 30, 0.9)
   );
   margin: 0;
-  height: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   font-family: var(--font-roboto), sans-serif;
   background-repeat: no-repeat;
 }
@@ -42,11 +42,11 @@ html.dark body {
     rgba(0, 0, 10, 0.95)
   );
   margin: 0;
-  height: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   font-family: var(--font-roboto), sans-serif;
   background-repeat: no-repeat;
 }
@@ -68,26 +68,18 @@ h6 {
   }
 }
 
-.darkmode-toggle {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.language-switcher{
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-
 /* Sombra sutil con un toque más suave */
 .shadow-cyan-500 {
   box-shadow: 0 0 6px rgba(0, 255, 255, 0.3), 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Sección blog: textura hex muy sutil (gris-azulado, no cyan puro) */
+.blog-lab-section {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2364748b' fill-opacity='0.05'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0v0L0 7.5V15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+html.light .blog-lab-section {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23475569' fill-opacity='0.07'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0v0L0 7.5V15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 

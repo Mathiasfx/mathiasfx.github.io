@@ -4,6 +4,7 @@ import "./globals.css";
 import StoreProvider from "@/store/provider";
 import { Providers } from "./providers/themeProvider";
 import { I18nProvider } from "./providers/i18nProvider";
+import SiteHeader from "./components/SiteHeader";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,7 +38,10 @@ export default function RootLayout({
           suppressHydrationWarning={true}
         >
           <Providers>
-            <I18nProvider> {children}</I18nProvider>
+            <I18nProvider>
+              <SiteHeader />
+              <main className="w-full flex-1 flex flex-col items-center">{children}</main>
+            </I18nProvider>
           </Providers>
         </body>
       </StoreProvider>

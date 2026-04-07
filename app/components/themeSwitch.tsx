@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
@@ -10,27 +9,24 @@ export default function ThemeSwitch() {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted)
+  /** Mismo tamaño que los iconos; evita el cuadrado del SVG placeholder anterior. */
+  const iconClass =
+    "inline-flex shrink-0 cursor-pointer rounded-md p-0.5 transition-all duration-300 ease-in-out hover:bg-white/10";
+
+  if (!mounted) {
     return (
-      <Image
-        className="darkmode-toggle"
-        src="data:image/svg+xml;base64,PHN2ZyBzdHJva2U9IiNGRkZGRkYiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBoZWlnaHQ9IjIwMHB4IiB3aWR0aD0iMjAwcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHJ4PSIyIj48L3JlY3Q+PC9zdmc+Cg=="
-        width={30}
-        height={30}
-        sizes="30x30"
-        alt="Loading Light/Dark Toggle"
-        priority={false}
-        title="Loading Light/Dark Toggle"
-      />
+      <span className={`${iconClass} h-9 w-9`} aria-hidden />
     );
+  }
 
   if (resolvedTheme === "dark") {
     return (
       <MdOutlineLightMode
-        className="darkmode-toggle"
-        size={36}
+        className={iconClass}
+        size={32}
         color="white"
         onClick={() => setTheme("light")}
+        aria-label="Cambiar a tema claro"
       />
     );
   }
@@ -38,11 +34,22 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "light") {
     return (
       <MdOutlineDarkMode
-        className="darkmode-toggle"
-        size={36}
+        className={iconClass}
+        size={32}
         color="black"
         onClick={() => setTheme("dark")}
+        aria-label="Cambiar a tema oscuro"
       />
     );
   }
+
+  return (
+    <MdOutlineDarkMode
+      className={iconClass}
+      size={32}
+      color="currentColor"
+      onClick={() => setTheme("dark")}
+      aria-label="Cambiar a tema oscuro"
+    />
+  );
 }

@@ -19,10 +19,11 @@ const LanguageSelector = () => {
   };
 
   return (
-    <div className="language-switcher">
+    <div className="relative z-20 shrink-0">
       <button
+        type="button"
         onClick={toggleDropdown}
-        className="flex items-center space-x-2 p-2  border-2 border-gray-300 rounded-md cursor-pointer"
+        className="flex items-center gap-2 p-2 border-2 border-gray-300 dark:border-slate-500 rounded-md text-sm cursor-pointer text-gray-900 dark:text-white bg-white/90 dark:bg-slate-900/80"
       >
         {/* Bandera actual */}
         <Image
@@ -44,10 +45,10 @@ const LanguageSelector = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-full  border border-gray-300 rounded-md shadow-md mt-2 z-10">
+        <div className="absolute top-full left-0 min-w-full w-max border border-gray-300 dark:border-slate-500 rounded-md shadow-md mt-2 z-30 bg-white dark:bg-slate-900">
           <button
             onClick={() => handleLanguageChange("en")}
-            className="flex items-center w-full p-2 text-left hover:bg-gray-800"
+            className="flex items-center w-full p-2 text-left hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
           >
             <Image
               src="https://flagcdn.com/w20/us.png"
@@ -60,7 +61,7 @@ const LanguageSelector = () => {
           </button>
           <button
             onClick={() => handleLanguageChange("es")}
-            className="flex items-center w-full p-2 text-left hover:bg-gray-200"
+            className="flex items-center w-full p-2 text-left hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white"
           >
             <Image
               src="https://flagcdn.com/w20/es.png"

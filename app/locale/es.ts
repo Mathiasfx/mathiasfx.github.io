@@ -23,8 +23,17 @@ const es = {
     copyError:"Error al copiar el correo",
     works:{
         title:"Trabajos destacados",
+    },
+    blog:{
+        previewTitle:"Últimos del blog",
+        seeMore:"Ver todos los posts",
+        empty:"Todavía no hay posts publicados.",
+        pageTitle:"Blog",
+        featuredLabel:"DESTACADOS",
+        categoryFallback:"ARTÍCULO",
+        readFeatured:"Leer destacado",
+        backHome:"Inicio",
     }
-    
 }
 
 export default es
