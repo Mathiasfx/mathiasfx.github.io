@@ -25,7 +25,7 @@ export default function MyPresentation({
   };
 
   return (
-    <div className="max-w-screen-lg h-full flex flex-col items-center  md:flex-row md:space-y-0 md:space-x-8 pt-16 mt-5 md:mt-0">
+    <div className="max-w-screen-lg h-full flex flex-col items-center md:flex-row md:space-y-0 md:space-x-8 pt-6 sm:pt-8 md:pt-10 mt-2 md:mt-0">
       <div className="text-center md:text-left space-y-4 ">
         <h3 className="text-2xl p-2 md:p-0 md:text-3xl">
           {context.t.translate("hi")}
@@ -57,8 +57,8 @@ export default function MyPresentation({
             type="button"
             onClick={() => copyToClipboard("mathiaspereiradev@gmail.com")}
             className="flex items-center px-4 py-2 rounded focus:outline-none focus:ring-offset-0 
-     border border-green-500 bg-slate-700 text-white hover:bg-gray-800
-     dark:bg-transparent dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
+     border border-slate-500 bg-slate-700 text-white hover:bg-gray-800
+     dark:bg-transparent dark:border dark:border-slate-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
           >
             <MdOutlineContentCopy size={16} className="mr-1" />
             {copySuccess
@@ -72,8 +72,8 @@ export default function MyPresentation({
             <button
               type="button"
               className="flex items-center px-4 py-2 rounded focus:outline-none focus:ring-offset-0 
-       border border-green-500 bg-slate-700 text-white hover:bg-gray-800
-       dark:bg-transparent dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
+       border border-slate-500 bg-slate-700 text-white hover:bg-gray-800
+       dark:bg-transparent dark:border dark:border-slate-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
             >
               CV
             </button>

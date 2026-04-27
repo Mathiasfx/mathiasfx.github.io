@@ -1,0 +1,20 @@
+rules_version = '2';
+
+// Reglas para Firebase Storage: el admin sube portadas a blog-images/.
+// Desplegar: firebase deploy --only storage (requiere firebase.json) o pegar en Console → Storage → Rules.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /blog-images/{allPaths=**} {
+      allow read: if true;
+      // create/update: solo imagenes < 6MB; delete: solo autenticado
+      allow create, update: if request.auth != null
+        && request.resource.size < 6 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+      allow delete: if request.auth != null;
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

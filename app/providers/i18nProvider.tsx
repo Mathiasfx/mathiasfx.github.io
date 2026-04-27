@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"; // Asegúrate de que este marcador de "use client" esté al inicio
+"use client"; 
 
 import React, { createContext, useEffect, useState } from "react";
 
-// Archivos de Traducción
+
 import es from "../locale/es";
 import en from "../locale/en";
 // Interfaces
@@ -20,10 +20,10 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [language, setLanguage] = useState<string>(defaultLanguage);
 
-  // Usamos useEffect para acceder a localStorage solo cuando el componente se renderiza en el cliente
+  
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Accedemos a localStorage solo en el cliente
+  
       const storedLang = localStorage.getItem("language");
       const browserLang = navigator.language.split("-")[0];
 
@@ -35,7 +35,7 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
         setLanguage(defaultLanguage);
       }
     }
-  }, []); // Esto asegura que solo se ejecute en el cliente después de la primera renderización
+  }, []); 
 
   const changeLanguage = (lang: string) => {
     if (supportedLanguages.includes(lang)) {
@@ -60,11 +60,11 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({
         if (value && value.hasOwnProperty(keys[i])) {
           value = value[keys[i]];
         } else {
-          return ""; // Retorna vacío si no se encuentra la clave
+          return ""; 
         }
       }
 
-      return value; // Devuelve el valor final encontrado
+      return value; 
     },
   };
 
