@@ -39,6 +39,8 @@ export type SerializedBlogPost = {
   publishedAt?: string;
   /** Etiqueta opcional desde Firestore (p. ej. tutorial, notas). */
   category?: string;
+  /** URL de imagen de portada (p. ej. Firebase Storage). */
+  coverImage?: string;
 };
 
 function toMillis(value: unknown): number {
@@ -82,6 +84,12 @@ function serializeDoc(
       ? rawCategory.trim()
       : undefined;
 
+  const rawCover = data.coverImage;
+  const coverImage =
+    typeof rawCover === "string" && rawCover.trim()
+      ? rawCover.trim()
+      : undefined;
+
   return {
     id: doc.id,
     title: data.title as string | undefined,
@@ -89,6 +97,7 @@ function serializeDoc(
     excerpt: data.excerpt as string | undefined,
     publishedAt,
     category,
+    coverImage,
   };
 }
 

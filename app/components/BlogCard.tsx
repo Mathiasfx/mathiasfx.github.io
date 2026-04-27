@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { SerializedBlogPost } from "@/lib/firebaseAdmin";
 
 export type BlogCardProps = {
@@ -19,6 +20,10 @@ export default function BlogCard({
   const slug = post.slug || post.id;
   const href = `/blog/${encodeURIComponent(String(slug))}`;
   const label = categoryDisplay.toUpperCase();
+  const cover =
+    typeof post.coverImage === "string" && post.coverImage.trim()
+      ? post.coverImage.trim()
+      : null;
 
   return (
     <article
@@ -32,8 +37,21 @@ export default function BlogCard({
     >
       <Link
         href={href}
-        className="text-inherit no-underline flex h-full min-h-0 flex-1 flex-col p-5"
+        className="text-inherit no-underline flex h-full min-h-0 flex-1 flex-col"
       >
+        {cover && (
+          <div className="relative h-36 w-full shrink-0 overflow-hidden border-b border-slate-300/40 dark:border-slate-600/50">
+            <Image
+              src={cover}
+              alt=""
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              unoptimized
+            />
+          </div>
+        )}
+        <div className="flex min-h-0 flex-1 flex-col p-5">
         <p className="mb-2 font-[family-name:var(--font-roboto)] text-[11px] font-semibold uppercase tracking-wide text-teal-800/90 dark:text-teal-300/95 md:text-xs">
           {label}
         </p>
@@ -57,6 +75,7 @@ export default function BlogCard({
             {dateLabel}
           </p>
         )}
+        </div>
       </Link>
     </article>
   );
