@@ -24,6 +24,16 @@ const en = {
     copyError:"Error on copy email",
     works:{
         title:"Featured Works",
+    },
+    blog:{
+        previewTitle:"Latest from the blog",
+        seeMore:"See all posts",
+        empty:"No published posts yet.",
+        pageTitle:"Blog",
+        featuredLabel:"FEATURED",
+        categoryFallback:"POST",
+        readFeatured:"Read featured",
+        backHome:"Home",
     }
 }
 

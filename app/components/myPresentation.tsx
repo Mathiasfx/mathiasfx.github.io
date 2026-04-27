@@ -25,7 +25,7 @@ export default function MyPresentation({
   };
 
   return (
-    <div className="max-w-screen-lg h-full flex flex-col items-center  md:flex-row md:space-y-0 md:space-x-8 pt-16 mt-5 md:mt-0">
+    <div className="max-w-screen-lg h-full flex flex-col items-center md:flex-row md:space-y-0 md:space-x-8 pt-6 sm:pt-8 md:pt-10 mt-2 md:mt-0">
       <div className="text-center md:text-left space-y-4 ">
         <h3 className="text-2xl p-2 md:p-0 md:text-3xl">
           {context.t.translate("hi")}
@@ -57,8 +57,8 @@ export default function MyPresentation({
             type="button"
             onClick={() => copyToClipboard("mathiaspereiradev@gmail.com")}
             className="flex items-center px-4 py-2 rounded focus:outline-none focus:ring-offset-0 
-     border border-green-500 bg-slate-700 text-white hover:bg-gray-800
-     dark:bg-transparent dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
+     border border-slate-500 bg-slate-700 text-white hover:bg-gray-800
+     dark:bg-transparent dark:border dark:border-slate-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
           >
             <MdOutlineContentCopy size={16} className="mr-1" />
             {copySuccess
@@ -66,14 +66,14 @@ export default function MyPresentation({
               : context.t.translate("copyAction")}
           </button>
           <a
-            href="https://firebasestorage.googleapis.com/v0/b/finanzasweb-efd1f.firebasestorage.app/o/CV_Mathias_Pereira.pdf?alt=media&token=4c8e8b73-16e8-4596-b6fe-3344940b013d"
+            href="/images/CV_Mathias_Pereira.pdf"
             download="CV_Mathias_Pereira.pdf"
           >
             <button
               type="button"
               className="flex items-center px-4 py-2 rounded focus:outline-none focus:ring-offset-0 
-       border border-green-500 bg-slate-700 text-white hover:bg-gray-800
-       dark:bg-transparent dark:border dark:border-green-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
+       border border-slate-500 bg-slate-700 text-white hover:bg-gray-800
+       dark:bg-transparent dark:border dark:border-slate-500 dark:text-white dark:hover:bg-gray-800 focus:transparent"
             >
               CV
             </button>
@@ -82,7 +82,7 @@ export default function MyPresentation({
       </div>
 
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
-        <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-teal-500 shadow-lg">
+        <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-teal-500 shadow-lg hover:shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 ease-in-out cursor-pointer">
           <Image
             src="/images/perfil.jpg"
             alt="Mathias Alejandro Pereira"
@@ -90,6 +90,7 @@ export default function MyPresentation({
             height={400}
             objectFit="cover"
             priority={true}
+            className="w-full h-full hover:scale-110 transition-transform duration-300"
           />
         </div>
       </div>
