@@ -17,6 +17,8 @@ const PRESENTATION_ANGLE = Math.PI / 5;
 const MODEL_TARGET_SIZE = 3;
 const DISPLAY_ZOOM = 1.575;
 const CAMERA_PADDING = 1.85;
+const ROTATION_SAFE_MARGIN = 1.1;
+const ROTATION_SAMPLE_STEPS = 32;
 
 type ParticleOrbit = {
   radius: number;
@@ -356,17 +358,40 @@ function createSphereParticles(count: number, radius: number) {
   return points;
 }
 
+function getRotationSafeBoundingBox(
+  target: THREE.Object3D,
+  spinGroup: THREE.Group
+) {
+  const savedRotation = spinGroup.rotation.y;
+  const safeBox = new THREE.Box3();
+
+  for (let i = 0; i < ROTATION_SAMPLE_STEPS; i++) {
+    spinGroup.rotation.y = (i / ROTATION_SAMPLE_STEPS) * Math.PI * 2;
+    target.updateMatrixWorld(true);
+    safeBox.union(getMeshBoundingBox(target));
+  }
+
+  spinGroup.rotation.y = savedRotation;
+  target.updateMatrixWorld(true);
+
+  return safeBox;
+}
+
 function frameCamera(
   camera: THREE.PerspectiveCamera,
   target: THREE.Object3D,
+  spinGroup?: THREE.Group,
   fitOffset = CAMERA_PADDING / DISPLAY_ZOOM
 ) {
-  const box = getMeshBoundingBox(target);
+  const box = spinGroup
+    ? getRotationSafeBoundingBox(target, spinGroup)
+    : getMeshBoundingBox(target);
   const center = box.getCenter(new THREE.Vector3());
   const size = box.getSize(new THREE.Vector3());
   const maxDim = Math.max(size.x, size.y, size.z);
   const heightDim = size.y;
-  const framingDim = Math.max(maxDim, heightDim * 0.92);
+  const framingDim =
+    Math.max(maxDim, heightDim * 0.92) * ROTATION_SAFE_MARGIN;
   const fovRad = (camera.fov * Math.PI) / 180;
   const distance =
     framingDim > 0
@@ -414,14 +439,14 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
     renderer.domElement.style.pointerEvents = "none";
     mount.appendChild(renderer.domElement);
 
-    scene.add(new THREE.HemisphereLight(0xe8f2fc, 0x1a2a3d, 0.85));
-    scene.add(new THREE.AmbientLight(0xffffff, 0.48));
+    scene.add(new THREE.HemisphereLight(0xe8f2fc, 0x1a2a3d, 0.90));
+    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
 
     const keyLight = new THREE.DirectionalLight(0xffffff, 1.85);
     keyLight.position.set(6, 10, 7);
     scene.add(keyLight);
 
-    const frontLight = new THREE.DirectionalLight(0xf0f9ff, 1.1);
+    const frontLight = new THREE.DirectionalLight(0xf0f9ff, 1.50);
     frontLight.position.set(0, 3, 8);
     scene.add(frontLight);
 
@@ -441,7 +466,7 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
     rimLight.position.set(-5, 2, -4);
     scene.add(rimLight);
 
-    const topLight = new THREE.DirectionalLight(0xe8f0f8, 0.8);
+    const topLight = new THREE.DirectionalLight(0xe8f0f8, 1.8);
     topLight.position.set(0, 16, 2);
     scene.add(topLight);
 
@@ -462,13 +487,13 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
         const texture = createCodeScreenTexture();
         screenTexture = texture;
         const pivot = prepareModel(gltf.scene, texture);
-        lookAtTarget = frameCamera(camera, pivot);
-        modelBaseY = pivot.position.y;
-        model = pivot;
-
         const spinGroup = pivot.userData.spinGroup as THREE.Group;
         particles = createSphereParticles(90, 2.4);
         spinGroup.add(particles);
+
+        lookAtTarget = frameCamera(camera, pivot, spinGroup);
+        modelBaseY = pivot.position.y;
+        model = pivot;
 
         scene.add(pivot);
         setIsLoading(false);
@@ -492,7 +517,8 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
       camera.updateProjectionMatrix();
       renderer.setSize(clientWidth, clientHeight);
       if (model) {
-        lookAtTarget = frameCamera(camera, model);
+        const spinGroup = model.userData.spinGroup as THREE.Group;
+        lookAtTarget = frameCamera(camera, model, spinGroup);
       }
     };
 

@@ -24,6 +24,14 @@ const en = {
     copyError:"Error on copy email",
     works:{
         title:"Featured Works",
+        viewDetails:"View details",
+        viewMore:"View more",
+        backHome:"Home",
+        liveSite:"Live site",
+        sourceCode:"Source code",
+        sourceCodeClient:"Mobile client",
+        sourceCodeApi:"API",
+        notFound:"Project not found",
     },
     blog:{
         previewTitle:"Latest from the blog",
