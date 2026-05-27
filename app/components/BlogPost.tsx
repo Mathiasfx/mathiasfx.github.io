@@ -28,7 +28,6 @@ export default function BlogPost({ post }: { post: any }) {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 896px"
             priority
-            unoptimized
           />
         </div>
       )}
