@@ -3,9 +3,11 @@
 import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 type NotebookSceneProps = {
   className?: string;
+  isMobile?: boolean;
 };
 
 const MODEL_PATH = "/images/3d/notebook.glb";
@@ -411,11 +413,14 @@ function frameCamera(
   return center;
 }
 
-export default function NotebookScene({ className = "" }: NotebookSceneProps) {
+export default function NotebookScene({ className = "", isMobile = false }: NotebookSceneProps) {
   const mountRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
+  // isMobile is intentionally excluded from deps: antialias/pixelRatio can only
+  // be set at WebGLRenderer creation time; recreating the scene on resize would be jarring.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const mount = mountRef.current;
     if (!mount) return;
@@ -429,9 +434,9 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: true,
+      antialias: !isMobile,
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -480,7 +485,11 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
     let autoRotationY = 0;
     let elapsed = 0;
 
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath("/draco/");
+
     const loader = new GLTFLoader();
+    loader.setDRACOLoader(dracoLoader);
     loader.load(
       MODEL_PATH,
       (gltf) => {
@@ -488,7 +497,7 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
         screenTexture = texture;
         const pivot = prepareModel(gltf.scene, texture);
         const spinGroup = pivot.userData.spinGroup as THREE.Group;
-        particles = createSphereParticles(90, 2.4);
+        particles = createSphereParticles(isMobile ? 30 : 90, 2.4);
         spinGroup.add(particles);
 
         lookAtTarget = frameCamera(camera, pivot, spinGroup);
@@ -586,7 +595,7 @@ export default function NotebookScene({ className = "" }: NotebookSceneProps) {
       }
 
       screenTexture?.dispose();
-
+      dracoLoader.dispose();
       renderer.dispose();
       if (mount.contains(renderer.domElement)) {
         mount.removeChild(renderer.domElement);

@@ -18,8 +18,19 @@ export async function generateMetadata({
   const work = getProjectBySlug(resolved.slug);
   if (!work) return { title: "Project not found" };
   return {
-    title: `${work.name.en} | Mathias Pereira`,
+    title: work.name.en,
     description: work.description.en,
+    openGraph: {
+      title: `${work.name.en} | Mathias Pereira`,
+      description: work.description.en,
+      images: work.image ? [{ url: work.image }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${work.name.en} | Mathias Pereira`,
+      description: work.description.en,
+      images: work.image ? [work.image] : [],
+    },
   };
 }
 

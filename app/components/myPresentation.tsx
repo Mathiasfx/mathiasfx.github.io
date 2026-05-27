@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
@@ -19,6 +19,15 @@ export default function MyPresentation({
   context: I18nContextValue;
 }) {
   const [copySuccess, setCopySuccess] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
   const copyToClipboard = (email: string) => {
     navigator.clipboard
       .writeText(email)
@@ -90,7 +99,7 @@ export default function MyPresentation({
 
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
         <div className="relative w-64 h-64 md:w-80 md:h-80">
-          <NotebookScene />
+          <NotebookScene isMobile={isMobile} />
         </div>
       </div>
     </div>

@@ -18,10 +18,11 @@ const Item = ({ work, context }: ItemProps) => {
         >
           <div className="relative w-full h-44 shrink-0 overflow-hidden bg-gray-200 dark:bg-slate-700">
             <Image
-              width={1308}
-              height={816}
+              width={600}
+              height={374}
               src={work.image}
               alt={title}
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 33vw, 427px"
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
             />
           </div>
