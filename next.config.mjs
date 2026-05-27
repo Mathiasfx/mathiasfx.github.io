@@ -3,8 +3,22 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "flagcdn.com",
+      },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+    ],
   },
+
+  experimental: {
+    optimizePackageImports: ["react-icons"],
+  },
+
   async headers() {
     return [
       {

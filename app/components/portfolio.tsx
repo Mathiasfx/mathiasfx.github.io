@@ -12,7 +12,7 @@ const Portfolio = ({ context, works }: PortfolioProps) => {
         {works.map((work: Work) => (
           <Item
             work={work}
-            key={work.name[context.language]}
+            key={work.slug}
             context={context}
           />
         ))}

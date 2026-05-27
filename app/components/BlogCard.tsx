@@ -47,7 +47,6 @@ export default function BlogCard({
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 33vw"
-              unoptimized
             />
           </div>
         )}

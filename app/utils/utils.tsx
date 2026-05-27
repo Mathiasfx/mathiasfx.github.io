@@ -1,10 +1,5 @@
-import { FaReact } from "react-icons/fa"; // React
-import { SiNextdotjs } from "react-icons/si"; // Next.js
-import { SiTailwindcss } from "react-icons/si"; // Tailwind CSS
-import { FaAngular } from "react-icons/fa"; // Angular
-import { FaNodeJs } from "react-icons/fa"; // Node.js
-import { FaFire } from "react-icons/fa";
-
+import { FaAngular, FaFire, FaMicrosoft, FaNodeJs, FaReact } from "react-icons/fa";
+import { SiDocker, SiNestjs, SiNextdotjs, SiN8N, SiTailwindcss } from "react-icons/si";
 export const getIcon = (icon: string) => {
   switch (icon) {
     case "react":
@@ -37,6 +32,12 @@ export const getIcon = (icon: string) => {
           <FaNodeJs size={24} style={{ marginRight: "4px" }} /> Node
         </p>
       );
+    case "nestjs":
+      return (
+        <p className="flex text-sm items-center space-x-1">
+          <SiNestjs size={24} style={{ marginRight: "4px" }} /> NestJS
+        </p>
+      );
     case "firebase":
       return (
         <p className="flex text-sm items-center space-x-1">
@@ -47,6 +48,24 @@ export const getIcon = (icon: string) => {
       return (
         <p className="flex text-sm items-center space-x-1">
           <FaReact size={24} style={{ marginRight: "4px" }} /> React Native
+        </p>
+      );
+    case "n8n":
+      return (
+        <p className="flex text-sm items-center space-x-1">
+          <SiN8N size={24} style={{ marginRight: "4px" }} /> n8n
+        </p>
+      );
+    case "docker":
+      return (
+        <p className="flex text-sm items-center space-x-1">
+          <SiDocker size={24} style={{ marginRight: "4px" }} /> Docker
+        </p>
+      );
+    case "azure":
+      return (
+        <p className="flex text-sm items-center space-x-1">
+          <FaMicrosoft size={24} style={{ marginRight: "4px" }} /> Azure
         </p>
       );
     default:

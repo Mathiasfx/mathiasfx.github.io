@@ -23,6 +23,14 @@ const es = {
     copyError:"Error al copiar el correo",
     works:{
         title:"Trabajos destacados",
+        viewDetails:"Ver detalles",
+        viewMore:"Ver más",
+        backHome:"Inicio",
+        liveSite:"Ver sitio",
+        sourceCode:"Código fuente",
+        sourceCodeClient:"Cliente móvil",
+        sourceCodeApi:"API",
+        notFound:"Proyecto no encontrado",
     },
     blog:{
         previewTitle:"Últimos del blog",

@@ -1,10 +1,17 @@
 "use client";
-import Image from "next/image";
-import { useState } from "react";
+import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 import { I18nContextValue } from "../interfaces/i18nContextValue.interface";
+
+const NotebookScene = dynamic(() => import("./notebookScene"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full animate-pulse rounded-lg bg-teal-500/10" />
+  ),
+});
 
 export default function MyPresentation({
   context,
@@ -12,6 +19,15 @@ export default function MyPresentation({
   context: I18nContextValue;
 }) {
   const [copySuccess, setCopySuccess] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
   const copyToClipboard = (email: string) => {
     navigator.clipboard
       .writeText(email)
@@ -82,16 +98,8 @@ export default function MyPresentation({
       </div>
 
       <div className="md:w-1/3 flex justify-center md:justify-end mt-8 md:mt-0">
-        <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-teal-500 shadow-lg hover:shadow-2xl hover:shadow-teal-500/50 transition-all duration-300 ease-in-out cursor-pointer">
-          <Image
-            src="/images/perfil.jpg"
-            alt="Mathias Alejandro Pereira"
-            width={400}
-            height={400}
-            objectFit="cover"
-            priority={true}
-            className="w-full h-full hover:scale-110 transition-transform duration-300"
-          />
+        <div className="relative w-64 h-64 md:w-80 md:h-80">
+          <NotebookScene isMobile={isMobile} />
         </div>
       </div>
     </div>

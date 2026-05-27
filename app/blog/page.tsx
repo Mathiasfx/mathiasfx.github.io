@@ -2,7 +2,7 @@ import React from "react";
 import { getAllPosts } from "@/lib/firebaseAdmin";
 import BlogPageClient from "../components/BlogPageClient";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function BlogPage() {
   try {
